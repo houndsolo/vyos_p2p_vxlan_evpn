@@ -27,6 +27,11 @@ locals {
         "10.240.${var.host_node.id * 10 + (peer.node_id - 10)}.0/31" :
         "10.240.${peer.node_id * 10 + (var.host_node.id - 10)}.1/31"
       )
+      host_ip_32  =  (
+        var.host_node.id < peer.node_id ?
+        "10.240.${var.host_node.id * 10 + (peer.node_id - 10)}.0/32" :
+        "10.240.${peer.node_id * 10 + (var.host_node.id - 10)}.1/32"
+      )
     }
   ]
 }

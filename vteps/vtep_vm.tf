@@ -94,7 +94,7 @@ resource "proxmox_virtual_environment_vm" "vyos_vxlan_vtep" {
     bridge = "vmbr5"
     model = "virtio"
     #vlan_id = "-1"
-    vlan_id = var.host_node.name == "vtep-ti-border" ? 2192 : var.host_node.name == "vtep-fi-border" ? 2191 : null
+    #vlan_id = var.host_node.name == "vtep-ti-border" ? 2192 : var.host_node.name == "vtep-fi-border" ? 2191 : null
   }
 
 

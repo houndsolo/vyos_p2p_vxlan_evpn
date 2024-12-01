@@ -27,7 +27,7 @@ resource "vyos_protocols_bgp_address_family_ipv4_unicast_network" "vtep_p2p_link
     for peer in local.p2p_cfg :
     peer.hostname => peer
   }
-  identifier = { network = each.value.host_ip_network }
+  identifier = { network = each.value.host_ip_32 }
 }
 
 resource "vyos_protocols_bgp_address_family_ipv4_unicast_network" "bgp_advertise_b1" {

@@ -43,19 +43,21 @@ resource "vyos_interfaces_ethernet" "vtep_p2p_links" {
   }
 }
 
-resource "vyos_interfaces_ethernet" "link_b1" {
+resource "vyos_interfaces_ethernet_vif" "link_b1" {
   count = var.host_node.name == "vtep-fi-border" ? 1 : 0
   identifier = {
     ethernet = "eth9"
+    vif = 2191
   }
   description = "link to b1"
   address = ["10.240.28.1/31"]
 }
 
-resource "vyos_interfaces_ethernet" "link_b2" {
+resource "vyos_interfaces_ethernet_vif" "link_b2" {
   count = var.host_node.name == "vtep-ti-border" ? 1 : 0
   identifier = {
     ethernet = "eth9"
+    vif = 2192
   }
   description = "link to b2"
   address = ["10.240.29.1/31"]
